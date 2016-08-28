@@ -3,15 +3,15 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Alpackits update-checker for packit {{PACKIT_CLASS_PREFIX}}
-class Packit_{{PACKIT_CLASS_PREFIX}}_UpdateController{
+// Alpackits update-checker for packit 6d9770ed031748be8149b7674f67a58f
+class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
 
     /**
      * Base url
      *
      * @var string
      */
-    const BASE_URL = '{{BASE_URL}}';
+    const BASE_URL = 'http://alpackit.dev';
 
     /**
      * API Version
@@ -34,7 +34,7 @@ class Packit_{{PACKIT_CLASS_PREFIX}}_UpdateController{
      *
      * @var string
      */
-    const UUID = '{{PACKIT_UUID}}';
+    const UUID = '6d9770ed-0317-48be-8149-b7674f67a58f';
 
     /**
      * Keeps the connection location
@@ -356,7 +356,7 @@ if( !function_exists( 'packit_get_class_name' ) ){
 
 
 //fire the class once:
-new Packit_{{PACKIT_CLASS_PREFIX}}_UpdateController();
+new Packit_6d9770ed031748be8149b7674f67a58f_UpdateController();
 
 
 
