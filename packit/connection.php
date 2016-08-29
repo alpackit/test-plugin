@@ -159,7 +159,7 @@ class Packit_a0d5f12c4f7c44f8a269876f709c384c_UpdateController{
             $response = wp_remote_get( $this->getUrl() );
 
             //check if this response has errors:
-            if( is_wp_error( $response ) || ( $response['response']['code'] == 200 ) )
+            if( is_wp_error( $response ) || ( $response['response']['code'] != 200 ) )
                 throw new Exception( $response->get_error_message() );
 
             //body is a json:
@@ -317,7 +317,7 @@ class Packit_a0d5f12c4f7c44f8a269876f709c384c_UpdateController{
     public function getUrl()
     {
         $url = trailingslashit( self::BASE_URL );
-        $url .= trailingslashit( self::API_VERSION );
+        $url .= 'remote/'.trailingslashit( self::API_VERSION );
 
         $url .= 'wordpress/license/';
         $url .= $this->license['key'];
