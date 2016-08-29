@@ -3,7 +3,7 @@
  * Plugin Name: Stupid Llama
  * Plugin URI: http://alpack.it/wordpress-tester-plugin
  * Description: Dumps a photo of a stupit llama in your stupid admin.
- * Version: 0.2.8
+ * Version: 0.2.9
  * Author: Luc Princen
  * Author URI: http://www.alpack.it
  * License: GPLv3
@@ -27,7 +27,7 @@ function alpackit_test_show_llama(){
 
     echo '<div style="width:100%;float:left;text-align:center;padding-top:30px;">';
         echo '<img src="https://animalswithsunglasses.files.wordpress.com/2011/05/unkempt-llama.jpg" style="max-width:100px;height:auto"><br/>';
-        echo '<strong>Hello from your favorite llama!</strong>';
+        echo '<strong>This is one stupid-ass llama.</strong>';
     echo '</div>';
 
 }
