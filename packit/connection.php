@@ -119,7 +119,7 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
             add_filter( 'transient_update_plugins', array( &$this, 'checkForUpdate' ), 100, 1 );
 
             // Take over the Plugin info screen
-            add_filter('plugins_api', array( &$this, 'updateInfo' ), 10, 3);
+            //add_filter('plugins_api', array( &$this, 'updateInfo' ), 10, 3);
 
             // Add custom buttons to the plugin overview-screen
 
@@ -159,11 +159,12 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
             $response = wp_remote_get( $this->getUrl() );
 
             //check if this response has errors:
-            if( is_wp_error( $response ) || ( $response['response']['code'] == 200 ) )
+            if( is_wp_error( $response ) || ( $response['response']['code'] !== 200 ) )
                 throw new Exception( $response->get_error_message() );
 
             //body is a json:
             $response = json_decode( $response['body'] );
+
 
             //check if json wasn't empty:
             if( !is_object( $response ) || empty( $response ) )
@@ -316,12 +317,12 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
      */
     public function getUrl()
     {
-        $url = trailingslashit( self::BASE_URL );
-        $url .= trailingslashit( self::API_VERSION );
 
+        $url = trailingslashit( self::BASE_URL ).'remote/';
+        $url .= trailingslashit( self::API_VERSION );
         $url .= 'wordpress/license/';
-        $url .= $this->license['key'];
-        $url .= '/packit/info';
+        $url .= trailingslashit( $this->license['key'] );
+        $url .= 'packit/info';
 
         return $url;
 
