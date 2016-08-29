@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // The directory separator.
 defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
 
-require 'vendors/alpackit/connection.php';
+require 'packit/connection.php';
 
 
 //hook + answer
