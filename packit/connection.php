@@ -4,7 +4,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Alpackits update-checker for packit 6d9770ed031748be8149b7674f67a58f
-class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
+class Packit_a0d5f12c4f7c44f8a269876f709c384c_UpdateController{
 
     /**
      * Base url
@@ -34,7 +34,7 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
      *
      * @var string
      */
-    const UUID = '6d9770ed-0317-48be-8149-b7674f67a58f';
+    const UUID = 'a0d5f12c-4f7c-44f8-a269-876f709c384c';
 
     /**
      * Keeps the connection location
@@ -119,7 +119,7 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
             add_filter( 'transient_update_plugins', array( &$this, 'checkForUpdate' ), 100, 1 );
 
             // Take over the Plugin info screen
-            //add_filter('plugins_api', array( &$this, 'updateInfo' ), 10, 3);
+            add_filter('plugins_api', array( &$this, 'updateInfo' ), 10, 3);
 
             // Add custom buttons to the plugin overview-screen
 
@@ -159,12 +159,11 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
             $response = wp_remote_get( $this->getUrl() );
 
             //check if this response has errors:
-            if( is_wp_error( $response ) || ( $response['response']['code'] !== 200 ) )
+            if( is_wp_error( $response ) || ( $response['response']['code'] == 200 ) )
                 throw new Exception( $response->get_error_message() );
 
             //body is a json:
             $response = json_decode( $response['body'] );
-
 
             //check if json wasn't empty:
             if( !is_object( $response ) || empty( $response ) )
@@ -317,12 +316,12 @@ class Packit_6d9770ed031748be8149b7674f67a58f_UpdateController{
      */
     public function getUrl()
     {
-
-        $url = trailingslashit( self::BASE_URL ).'remote/';
+        $url = trailingslashit( self::BASE_URL );
         $url .= trailingslashit( self::API_VERSION );
+
         $url .= 'wordpress/license/';
-        $url .= trailingslashit( $this->license['key'] );
-        $url .= 'packit/info';
+        $url .= $this->license['key'];
+        $url .= '/packit/info';
 
         return $url;
 
@@ -493,7 +492,7 @@ if( !function_exists( 'packit_get_class_name' ) ){
 
 
 //fire the class once:
-new Packit_6d9770ed031748be8149b7674f67a58f_UpdateController();
+new Packit_a0d5f12c4f7c44f8a269876f709c384c_UpdateController();
 
 
 
