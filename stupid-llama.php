@@ -3,7 +3,7 @@
  * Plugin Name: Stupid Llama
  * Plugin URI: http://alpack.it/wordpress-tester-plugin
  * Description: Dumps a photo of a stupit llama in your stupid admin.
- * Version: 0.3.0
+ * Version: 0.3.1
  * Author: Luc Princen
  * Author URI: http://www.alpack.it
  * License: GPLv3
