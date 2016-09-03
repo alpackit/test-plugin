@@ -3,8 +3,8 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Alpackits update-checker for packit 16240c06a5464d0eb2f6a3eff93cc35f
-class Packit_16240c06a5464d0eb2f6a3eff93cc35f_UpdateController{
+// Alpackits update-checker for packit dce4c39fafcf4acd8ff3c8ca875044f5
+class Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController{
 
     /**
      * Base url
@@ -34,7 +34,7 @@ class Packit_16240c06a5464d0eb2f6a3eff93cc35f_UpdateController{
      *
      * @var string
      */
-    const UUID = '16240c06-a546-4d0e-b2f6-a3eff93cc35f';
+    const UUID = 'dce4c39f-afcf-4acd-8ff3-c8ca875044f5';
 
     /**
      * Keeps the connection location
@@ -492,7 +492,7 @@ if( !function_exists( 'packit_get_class_name' ) ){
 
 
 //fire the class once:
-new Packit_16240c06a5464d0eb2f6a3eff93cc35f_UpdateController();
+new Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController();
 
 
 
