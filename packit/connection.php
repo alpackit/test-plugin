@@ -3,8 +3,8 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Alpackits update-checker for packit dce4c39fafcf4acd8ff3c8ca875044f5
-class Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController{
+// Alpackits update-checker for packit c212648b26104ac6a8f47c9b14ddf16b
+class Packit_c212648b26104ac6a8f47c9b14ddf16b_UpdateController{
 
     /**
      * Base url
@@ -34,7 +34,7 @@ class Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController{
      *
      * @var string
      */
-    const UUID = 'dce4c39f-afcf-4acd-8ff3-c8ca875044f5';
+    const UUID = 'c212648b-2610-4ac6-a8f4-7c9b14ddf16b';
 
     /**
      * Keeps the connection location
@@ -158,9 +158,14 @@ class Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController{
             //make a remote call:
             $response = wp_remote_get( $this->getUrl() );
 
-            //check if this response has errors:
-            if( is_wp_error( $response ) || ( $response['response']['code'] != 200 ) )
+             //check if the response was valid:
+            if( is_wp_error( $response ) )
                 throw new Exception( $response->get_error_message() );
+
+            //check if Alpackit returned a 200 response:
+            if( $response['response']['code'] != 200 )
+                throw new Exception( $response['response']['message'] );
+
 
             //body is a json:
             $response = json_decode( $response['body'] );
@@ -492,7 +497,7 @@ if( !function_exists( 'packit_get_class_name' ) ){
 
 
 //fire the class once:
-new Packit_dce4c39fafcf4acd8ff3c8ca875044f5_UpdateController();
+new Packit_c212648b26104ac6a8f47c9b14ddf16b_UpdateController();
 
 
 
