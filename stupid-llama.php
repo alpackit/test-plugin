@@ -3,7 +3,7 @@
  * Plugin Name: Stupid Llama
  * Plugin URI: http://alpack.it/wordpress-tester-plugin
  * Description: Dumps a photo of a stupit llama in your stupid admin.
- * Version: 0.4.3
+ * Version: 1.0.0
  * Author: Luc Princen
  * Author URI: http://www.alpack.it
  * License: GPLv3
@@ -17,9 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // The directory separator.
 defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
-
-require 'packit/connection.php';
-
 
 //hook + answer
 add_action( 'admin_footer', 'alpackit_test_show_llama' );
